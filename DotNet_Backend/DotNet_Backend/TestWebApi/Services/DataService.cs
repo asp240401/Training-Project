@@ -29,16 +29,12 @@ namespace TestWebApi.Services
 	/// </remarks>
 	public class DataService : IDataService
 	{
-		// Reference to the SignalR hub
-		private readonly IHubContext<DataHub> _hub;
-
 		private readonly IFileService _fileService;
 
-        	private readonly IHubService _hubService;
+        private readonly IHubService _hubService;
 
-		public DataService(IHubContext<DataHub> hub, IFileService fileService, IHubService hubService)
+		public DataService(IFileService fileService, IHubService hubService)
 		{
-			_hub = hub;
 			_fileService = fileService;
 			_hubService = hubService;
 		}
@@ -52,105 +48,102 @@ namespace TestWebApi.Services
 		{
 			var options = new DbContextOptionsBuilder<SensorContext>().UseSqlServer("Data Source=TJ16AA050-PC\\SQLEXPRESS;Initial Catalog=Current_Sensor;Integrated Security=true;MultipleActiveResultSets=true;TrustServerCertificate=True;").Options;
 
-            		try
-            		{
-                		using (var dbContext = new SensorContext(options))
-                		{
-                    			dbContext.SensorData.Add(data);
-                    			await dbContext.SaveChangesAsync();
-                		}
-            		}
-            		catch (DbUpdateException ex)
-            		{
-                		// This exception might occur due to database-related issues (e.g., unique constraint violations, database connection issues)
-                		Log.Error("DbUpdateException occurred: " + ex.Message);
-            		}
-            		catch (Exception e)
-            		{
-                		// Catch any other unexpected exceptions
-                		Log.Error("An unexpected error occurred: " + e.Message);
-            		}
-        	}
+            try
+            {
+                using (var dbContext = new SensorContext(options))
+                {
+                    dbContext.SensorData.Add(data);
+                    await dbContext.SaveChangesAsync();
+                }
+			}
+            catch (DbUpdateException ex)
+            {
+                Log.Error("DbUpdateException occurred: " + ex.Message);
+            }
+            catch (Exception e)
+            {
+                Log.Error("An unexpected error occurred: " + e.Message);
+            }
+		}
 
-        	/// <summary>
-        	/// Method is used to handle the adc data received from the device.
-        	/// Writes the data to the DB and also sends it to the frontend via SignalR
-        	/// </summary>
-        	/// <param name="message">data received from the device</param>
-        	/// <returns></returns>
-        	public async Task handleAdcData(string message)
-        	{
-            		string[] words = message.Split(' ');
-            		if (words.Length == 3)
-            		{
-                		await _hub.Clients.All.SendAsync("TransferAdcData", message);
-            		}
+        /// <summary>
+        /// Method is used to handle the adc data received from the device.
+        /// Writes the data to the DB and also sends it to the frontend via SignalR
+        /// </summary>
+        /// <param name="message">data received from the device</param>
+        /// <returns></returns>
+        public async Task handleAdcData(string message)
+        {
+            	string[] words = message.Split(' ');
+            	if (words.Length == 3)
+            	{
+                	await _hubService.sendToHub("TransferAdcData", message);
+            	}
 	      		else
-            		{
-                		decimal val = Convert.ToDecimal(words[1]);
-                		Console.WriteLine("value:" + val);
+            	{
+                	decimal val = Convert.ToDecimal(words[1]);
+                	Console.WriteLine("value:" + val);
 
-                		SensorData data = new SensorData();
-                		data.timestamp = DateTime.Now;
-                		data.current = val;
+                	SensorData data = new SensorData();
+                	data.timestamp = DateTime.Now;
+                	data.current = val;
 
-                		await _hubService.sendToHub("TransferReplyData", new { label = data.timestamp.ToString("h:mm:ss tt"), y = data.current });
+                	await _hubService.sendToHub("TransferReplyData", new { label = data.timestamp.ToString("h:mm:ss tt"), y = data.current });
 
-                		//await _hub.Clients.All.SendAsync("TransferReplyData", new { label = data.timestamp.ToString("h:mm:ss tt"), y = data.current });
-                		await writeToDatabase(data);
-            		}
-        	}
+                	await writeToDatabase(data);
+            	}
+        }
 
-        	/// <summary>
-        	/// method used to handle threshold values received from the device.
+        /// <summary>
+        /// method used to handle threshold values received from the device.
 		/// saves threshold values to JSON file.
-        	/// </summary>
-        	/// <param name="message">data received from the device</param>
-        	public void handleThresholdData(string message)
-        	{
-            		string[] words = message.Split(' ');
-            		if (words[1] == "SET") //THR SET reply from device
-            		{
+        /// </summary>
+        /// <param name="message">data received from the device</param>
+        public void handleThresholdData(string message)
+        {
+            	string[] words = message.Split(' ');
+            	if (words[1] == "SET") //THR SET reply from device
+            	{
 
-            		}
-            		else
-            		{
-                		decimal lt = Convert.ToDecimal(words[1]);
-                		decimal ht = Convert.ToDecimal(words[2]);
-                		var settings = new Settings();
-                		var existingSettings = _fileService.readSettings();
+            	}
+            	else
+            	{
+                	decimal lt = Convert.ToDecimal(words[1]);
+                	decimal ht = Convert.ToDecimal(words[2]);
+                	var settings = new Settings();
+                	var existingSettings = _fileService.readSettings();
 
-                		if (existingSettings.dataAcquisitionRate == 0)
-                		{
-                    			settings.dataAcquisitionRate = 1000;
-               			}
-                		else
-                		{
-                    			settings.dataAcquisitionRate = existingSettings.dataAcquisitionRate;
-                		}
+                	if (existingSettings.dataAcquisitionRate == 0)
+                	{
+                    	settings.dataAcquisitionRate = 1000;
+               		}
+                	else
+                	{
+                    	settings.dataAcquisitionRate = existingSettings.dataAcquisitionRate;
+                	}
 
-                		settings.thresholdLow = lt;
-                		settings.thresholdHigh = ht;
+                	settings.thresholdLow = lt;
+                	settings.thresholdHigh = ht;
 
-                		_fileService.writeSettings(settings);
-            		}
-        	}
-
-	        /// <summary>
-	        /// Event handler for processing data received from a serial port.
-	        /// </summary>
-	        /// <param name="sender">The object that raised the event.</param>
-	        /// <param name="e">The event arguments.</param>
-	        /// <exception cref="OperationCanceledException">
-	        /// Thrown when the operation is canceled, such as when the device being read from is removed.
-	        /// </exception>
-	        /// <exception cref="InvalidOperationException">
-	        /// Thrown when an invalid operation occurs, such as attempting to read from a closed port.
-	        /// </exception>
-	        /// <exception cref="NullReferenceException">
-	        /// Thrown when a null reference is encountered, such as writitng to a serial port which is not instantiated.
-	        /// </exception>
-	        public async void dataReceived(object sender, SerialDataReceivedEventArgs e)
+                	_fileService.writeSettings(settings);
+            	}
+        }
+		
+		/// <summary>
+	    /// Event handler for processing data received from a serial port.
+	    /// </summary>
+		/// <param name="sender">The object that raised the event.</param>
+		/// <param name="e">The event arguments.</param>
+		/// <exception cref="OperationCanceledException">
+		/// Thrown when the operation is canceled, such as when the device being read from is removed.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Thrown when an invalid operation occurs, such as attempting to read from a closed port.
+		/// </exception>
+		/// <exception cref="NullReferenceException">
+		/// Thrown when a null reference is encountered, such as writitng to a serial port which is not instantiated.
+		/// </exception>
+	    public async void dataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
 			string message;
 			SerialPort sp = (SerialPort)sender;
@@ -174,9 +167,8 @@ namespace TestWebApi.Services
 				}
 				else if (message.StartsWith("THR"))
 				{
-	        			handleThresholdData(message);
+					handleThresholdData(message);
 				}
-				Log.Information("RECEIVED:" + message);
 			}
 				
 			catch (OperationCanceledException ex)
@@ -194,7 +186,6 @@ namespace TestWebApi.Services
 				Log.Error("port is closed");
 				await _hubService.sendToHub("TransferReplyError", "port closed");
 			}
-	
 		}
 	}
 }

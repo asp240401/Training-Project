@@ -41,8 +41,8 @@ namespace TestWebApi
 			
 			builder.Services.AddSingleton<TimerManager>();
 			
-			builder.Services.AddSingleton<IDataService, DataService>();
-			builder.Services.AddSingleton<ISerialPortService,SerialPortService>();
+			builder.Services.AddScoped<IDataService, DataService>();
+			builder.Services.AddScoped<ISerialPortService,SerialPortService>();
 			builder.Services.AddSingleton<IFileService, FileService>();
 			builder.Services.AddSingleton<IHubService, HubService>();
 

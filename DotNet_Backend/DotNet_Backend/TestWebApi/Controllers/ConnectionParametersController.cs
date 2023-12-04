@@ -91,92 +91,34 @@ namespace TestWebApi.Controllers
 		[HttpPost]
 		public async Task<ActionResult<Port>> PostPort(Port port)
 		{
-			if (_serialPortService.serialPort.IsOpen)
+			if (_serialPortService.isOpen())
 			{
 				Log.Error("port already open");
-				_serialPortService.serialPort.Close();
+				_serialPortService.closeSerialPort();
 				port.PortName = "error";
 				return CreatedAtAction("PostPort", port);
 			}
 
-			_serialPortService.serialPort.DataReceived += _dataService.dataReceived;
-
-			_serialPortService.serialPort.PortName = port.PortName;
-			_serialPortService.serialPort.BaudRate = port.BaudRate;
-			_serialPortService.serialPort.DataBits = port.DataBits;
-
-			switch (port.Parity)
-			{
-				case "Even":
-					_serialPortService.serialPort.Parity = System.IO.Ports.Parity.Even;
-					break;
-				case "Mark":
-					_serialPortService.serialPort.Parity = System.IO.Ports.Parity.Mark;
-					break;
-				case "None":
-					_serialPortService.serialPort.Parity = System.IO.Ports.Parity.None;
-					break;
-				case "Odd":
-					_serialPortService.serialPort.Parity = System.IO.Ports.Parity.Odd;
-					break;
-				case "Space":
-					_serialPortService.serialPort.Parity = System.IO.Ports.Parity.Space;
-					break;
-				default: break;
-			}
-
-			switch (port.Handshake)
-			{
-				case "None":
-					_serialPortService.serialPort.Handshake = System.IO.Ports.Handshake.None;
-					break;
-				case "RequestToSend":
-					_serialPortService.serialPort.Handshake = System.IO.Ports.Handshake.RequestToSend;
-					break;
-				case "RequestToSendXOnXOff":
-					_serialPortService.serialPort.Handshake = System.IO.Ports.Handshake.RequestToSendXOnXOff;
-					break;
-				case "XOnXOff":
-					_serialPortService.serialPort.Handshake = System.IO.Ports.Handshake.XOnXOff;
-					break;
-				default: break;
-			}
-
-			switch (port.StopBits)
-			{
-				case "None":
-					_serialPortService.serialPort.StopBits = System.IO.Ports.StopBits.None;
-					break;
-				case "One":
-					_serialPortService.serialPort.StopBits = System.IO.Ports.StopBits.One;
-					break;
-				case "OnePointFive":
-					_serialPortService.serialPort.StopBits = System.IO.Ports.StopBits.OnePointFive;
-					break;
-				case "Two":
-					_serialPortService.serialPort.StopBits = System.IO.Ports.StopBits.Two;
-					break;
-				default: break;
-			}
-
-			_serialPortService.serialPort.WriteTimeout = 1000;
+			_serialPortService.setPortname(port.PortName);
+			_serialPortService.setBaudrate(port.BaudRate);
+			_serialPortService.setDatabits(port.DataBits);
+			_serialPortService.setParity(port.Parity);
+			_serialPortService.setHandshake(port.Handshake);
+			_serialPortService.setStopbits(port.StopBits);
 
 			try
 			{
-				_serialPortService.serialPort.Open();
+				_serialPortService.openSerialPort();
 			}
 			catch(Exception ex)
 			{
 				Log.Error("error in connecting to serial port");
 				port.PortName = "error";
-				_serialPortService.serialPort.Close();
+				_serialPortService.closeSerialPort();
 				return CreatedAtAction("PostPort", port);
 			}
 
-			Log.Information("Connected to serial port");
-			Log.Information("SENT: GETTHR");
-
-			_serialPortService.serialPort.Write("GETTHR\r");
+			_serialPortService.writeToPort("GETTHR\r");
 
 			return CreatedAtAction("PostPort", port);
 
@@ -200,8 +142,7 @@ namespace TestWebApi.Controllers
 		{
 			try
 			{
-				_serialPortService.serialPort.Close();
-				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
+				_serialPortService.closeSerialPort();
 			}
 			catch(Exception ex)
 			{

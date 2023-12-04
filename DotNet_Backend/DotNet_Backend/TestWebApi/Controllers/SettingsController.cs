@@ -19,14 +19,12 @@ namespace TestWebApi.Controllers
 		private readonly ISerialPortService _serialPortService;
 		private readonly IHubService _hubService;
 		private readonly IFileService _fileService;
-		private readonly IDataService _dataService;
 
-		public SettingsController(ISerialPortService serialPortService, IHubService hubService,IFileService fileService, IDataService dataService)
+		public SettingsController(ISerialPortService serialPortService, IHubService hubService,IFileService fileService)
 		{
 			_serialPortService = serialPortService;
 			_hubService = hubService;
 			_fileService = fileService;
-			_dataService = dataService;
 		}
 
 		/// <summary>
@@ -100,20 +98,19 @@ namespace TestWebApi.Controllers
 			
 			try
 			{
-				_serialPortService.serialPort.Write($"SETTHR {settings.thresholdLow} {settings.thresholdHigh}" + "\r");
-				Log.Information("SENT: "+$"SETTHR {settings.thresholdLow} {settings.thresholdHigh}");
+				_serialPortService.writeToPort($"SETTHR {settings.thresholdLow} {settings.thresholdHigh}" + "\r");
 			}
 			catch (OperationCanceledException ex)
 			{
+				_serialPortService.closeSerialPort();
 				Log.Error("Write Attempted while port is closed - Operation Cancelled");
-				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
-
+				
 				_hubService.sendToHub("TransferReplyError", "operation cancelled");
 			}
 			catch (InvalidOperationException e)
 			{
+				_serialPortService.closeSerialPort();
 				Log.Error("Write Attempted while port is closed - Invalid Operation");
-				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
 
 				_hubService.sendToHub("TransferReplyError", "Port is Closed");
 			}

@@ -20,11 +20,10 @@ namespace TestWebApi.Controllers
 		private readonly IHubService _hubService;
 		private readonly IDataService _dataService;
 
-		public ManualModeController(ISerialPortService serialPortService, IHubService hubService,IDataService dataService)
+		public ManualModeController(ISerialPortService serialPortService, IHubService hubService)
 		{
 			_serialPortService = serialPortService;
 			_hubService = hubService;
-			_dataService = dataService;
 		}
 
 		/// <summary>
@@ -44,20 +43,22 @@ namespace TestWebApi.Controllers
 		{
 			try
 			{
-				_serialPortService.serialPort.Write(value + "\r");
+				_serialPortService.writeToPort(value + "\r");
 				Log.Information("SENT:" + value);
 			}
 			catch (OperationCanceledException ex)
 			{
+
+				_serialPortService.closeSerialPort();
 				Log.Error("operation was cancelled");
-				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
 
 				_hubService.sendToHub("TransferReplyError", "operation cancelled");
 			}
 			catch (InvalidOperationException ex)
 			{
+
+				_serialPortService.closeSerialPort();
 				Log.Error("port is closed");
-				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
 
 				_hubService.sendToHub("TransferReplyError", "Port is Closed");
 			}

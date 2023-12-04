@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore.Internal;
+using System.Drawing;
 using System.IO.Ports;
 using TestWebApi.DataStorage;
 using TestWebApi.Hubs;
@@ -7,16 +8,28 @@ using TestWebApi.Models;
 
 namespace TestWebApi.Services
 {
-	/// <summary>
-	/// Represents a service for managing a serial port connection
-	/// </summary>
+		/// <summary>
+		/// Represents a service for managing a serial port connection
+		/// </summary>
 		public interface ISerialPortService
     	{
-        	SerialPort serialPort { get; set; }
 			IEnumerable<string> GetPortNames();
 			IEnumerable<string> GetHandshakeOptions();
 			IEnumerable<string> GetParityOptions();
 			IEnumerable<string> GetStopBits();
+
+			bool isOpen();
+			void openSerialPort();
+			void closeSerialPort();
+
+			void setParity(string parity);
+			void setHandshake(string handshake);
+			void setPortname(string name);
+			void setBaudrate(int baudRate);
+			void setDatabits(int dataBits);
+			void setStopbits(string stopBits);
+
+			void writeToPort(string data);
 		}
 
     	/// <summary>
@@ -24,12 +37,15 @@ namespace TestWebApi.Services
     	/// </summary>
     	public class SerialPortService : ISerialPortService
     	{
-			public SerialPortService()
+			private readonly IDataService _dataService;
+
+			private static SerialPort serialPort { get; set; } = new SerialPort();
+
+			public SerialPortService(IDataService dataService)
 			{
-
+				_dataService = dataService;
 			}
-			public SerialPort serialPort { get; set; } = new SerialPort();
-
+		
 			public IEnumerable<string> GetPortNames()
 			{
 				List<string> portNames = new List<string> { };
@@ -70,6 +86,106 @@ namespace TestWebApi.Services
 				}
 
 				return stopbits;
+			}
+
+			public void openSerialPort()
+			{
+				serialPort.Open();
+				serialPort.DataReceived += _dataService.dataReceived;
+			}
+
+			public void closeSerialPort()
+			{
+				serialPort.Close();
+				serialPort.DataReceived -= _dataService.dataReceived;	
+			}
+
+			public void setPortname(string name)
+			{
+				serialPort.PortName = name;
+			}
+
+			public void setBaudrate(int baudRate)
+			{
+				serialPort.BaudRate=baudRate;
+			}
+
+			public void setDatabits(int dataBits)
+			{
+				serialPort.DataBits = dataBits;
+			}
+
+			public void setParity(string parity)
+			{
+				switch (parity)
+				{
+					case "Even":
+					serialPort.Parity = System.IO.Ports.Parity.Even;
+					break;
+					case "Mark":
+					serialPort.Parity = System.IO.Ports.Parity.Mark;
+					break;
+					case "None":
+					serialPort.Parity = System.IO.Ports.Parity.None;
+					break;
+					case "Odd":
+					serialPort.Parity = System.IO.Ports.Parity.Odd;
+					break;
+					case "Space":
+					serialPort.Parity = System.IO.Ports.Parity.Space;
+					break;
+					default: break;
+				}
+			}
+
+			public void setHandshake(string handshake)
+			{
+				switch(handshake)
+				{
+					case "None":
+						serialPort.Handshake = System.IO.Ports.Handshake.None;
+						break;
+					case "RequestToSend":
+						serialPort.Handshake = System.IO.Ports.Handshake.RequestToSend;
+						break;
+					case "RequestToSendXOnXOff":
+						serialPort.Handshake = System.IO.Ports.Handshake.RequestToSendXOnXOff;
+						break;
+					case "XOnXOff":
+						serialPort.Handshake = System.IO.Ports.Handshake.XOnXOff;
+						break;
+					default: break;
+				}
+			}
+
+			public void setStopbits(string stopBits)
+			{
+				switch (stopBits)
+				{
+					case "None":
+					serialPort.StopBits = System.IO.Ports.StopBits.None;
+					break;
+					case "One":
+					serialPort.StopBits = System.IO.Ports.StopBits.One;
+					break;
+					case "OnePointFive":
+					serialPort.StopBits = System.IO.Ports.StopBits.OnePointFive;
+					break;
+					case "Two":
+					serialPort.StopBits = System.IO.Ports.StopBits.Two;
+					break;
+					default: break;
+				}
+			}
+
+			public bool isOpen()
+			{
+				return serialPort.IsOpen;
+			}
+
+			public void writeToPort(string data)
+			{
+				serialPort.Write(data);
 			}
 		}
 }
