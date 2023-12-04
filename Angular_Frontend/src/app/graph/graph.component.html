@@ -1,0 +1,8 @@
+<div style="display: flex;align-items: center;">
+    <canvasjs-chart [options]="chartOptions" [styles]="{width: '60vw', height:'48vh'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart>  
+    <button  mat-raised-button  (click)="controlGraph()" *ngIf="start" style="background-color: rgb(197, 100, 100);margin-left: 10px;">Stop</button>  
+    <button  mat-raised-button  (click)="controlGraph()" *ngIf="!start"  style="background-color: #557C55;margin-left: 10px;">Start</button>  
+</div>  
+
+
+

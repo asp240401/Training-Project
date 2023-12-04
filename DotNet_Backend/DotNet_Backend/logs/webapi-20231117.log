@@ -1,0 +1,80 @@
+2023-11-17 14:38:41.085 +05:30  INF  Now listening on: http://localhost:3000
+2023-11-17 14:38:41.112 +05:30  INF  Now listening on: http://localhost:5023
+2023-11-17 14:38:41.115 +05:30  INF  Application started. Press Ctrl+C to shut down.
+2023-11-17 14:38:41.116 +05:30  INF  Hosting environment: Development
+2023-11-17 14:38:41.116 +05:30  INF  Content root path: C:\Users\Anirudh S Priyan\source\repos\TestWebApi\TestWebApi
+2023-11-17 14:38:41.725 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/index.html - -
+2023-11-17 14:38:41.990 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_vs/browserLink - -
+2023-11-17 14:38:41.990 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - -
+2023-11-17 14:38:41.994 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/index.html - - - 200 - text/html;charset=utf-8 272.0369ms
+2023-11-17 14:38:41.994 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 2.4356ms
+2023-11-17 14:38:42.014 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.0972ms
+2023-11-17 14:38:42.215 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - -
+2023-11-17 14:38:42.327 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 111.6943ms
+2023-11-17 14:38:53.425 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/index.html - -
+2023-11-17 14:38:53.582 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/index.html - - - 200 - text/html;charset=utf-8 156.1098ms
+2023-11-17 14:38:53.585 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_vs/browserLink - -
+2023-11-17 14:38:53.585 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - -
+2023-11-17 14:38:53.585 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 0.5430ms
+2023-11-17 14:38:53.589 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 4.0028ms
+2023-11-17 14:38:53.653 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - -
+2023-11-17 14:38:53.657 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 4.3181ms
+2023-11-17 14:39:13.537 +05:30  INF  Now listening on: http://localhost:3000
+2023-11-17 14:39:13.557 +05:30  INF  Now listening on: http://localhost:5023
+2023-11-17 14:39:13.560 +05:30  INF  Application started. Press Ctrl+C to shut down.
+2023-11-17 14:39:13.560 +05:30  INF  Hosting environment: Development
+2023-11-17 14:39:13.560 +05:30  INF  Content root path: C:\Users\Anirudh S Priyan\source\repos\TestWebApi\TestWebApi
+2023-11-17 14:39:13.755 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/index.html - -
+2023-11-17 14:39:14.013 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_vs/browserLink - -
+2023-11-17 14:39:14.015 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/index.html - - - 200 - text/html;charset=utf-8 262.1514ms
+2023-11-17 14:39:14.024 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - -
+2023-11-17 14:39:14.028 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 2.9773ms
+2023-11-17 14:39:14.031 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 17.5179ms
+2023-11-17 14:39:14.136 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - -
+2023-11-17 14:39:14.397 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 260.7935ms
+2023-11-17 14:39:27.315 +05:30  INF  Now listening on: http://localhost:3000
+2023-11-17 14:39:27.336 +05:30  INF  Now listening on: http://localhost:5023
+2023-11-17 14:39:27.339 +05:30  INF  Application started. Press Ctrl+C to shut down.
+2023-11-17 14:39:27.339 +05:30  INF  Hosting environment: Development
+2023-11-17 14:39:27.339 +05:30  INF  Content root path: C:\Users\Anirudh S Priyan\source\repos\TestWebApi\TestWebApi
+2023-11-17 14:39:27.836 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/index.html - -
+2023-11-17 14:39:28.186 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - -
+2023-11-17 14:39:28.193 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/_vs/browserLink - -
+2023-11-17 14:39:28.194 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_framework/aspnetcore-browser-refresh.js - - - 200 12352 application/javascript;+charset=utf-8 5.3991ms
+2023-11-17 14:39:28.205 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/index.html - - - 200 - text/html;charset=utf-8 358.5780ms
+2023-11-17 14:39:28.234 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.1622ms
+2023-11-17 14:39:28.349 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - -
+2023-11-17 14:39:28.499 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 150.7210ms
+2023-11-17 14:39:44.566 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/Settings - -
+2023-11-17 14:39:44.576 +05:30  WRN  Failed to determine the https port for redirect.
+2023-11-17 14:39:44.581 +05:30  INF  CORS policy execution successful.
+2023-11-17 14:39:44.588 +05:30  INF  Executing endpoint 'TestWebApi.Controllers.SettingsController.Get (TestWebApi)'
+2023-11-17 14:39:44.651 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/data - -
+2023-11-17 14:39:44.652 +05:30  INF  CORS policy execution successful.
+2023-11-17 14:39:44.653 +05:30  INF  Executing endpoint '/data'
+2023-11-17 14:39:44.665 +05:30  INF  Route matched with {action = "Get", controller = "Settings"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[TestWebApi.Models.Settings] Get() on controller TestWebApi.Controllers.SettingsController (TestWebApi).
+2023-11-17 14:39:44.670 +05:30  INF  Request starting HTTP/1.1 GET http://localhost:3000/api/Chart - -
+2023-11-17 14:39:44.671 +05:30  INF  CORS policy execution successful.
+2023-11-17 14:39:44.671 +05:30  INF  Executing endpoint 'TestWebApi.Controllers.ChartController.Get (TestWebApi)'
+2023-11-17 14:39:44.675 +05:30  INF  Route matched with {action = "Get", controller = "Chart"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller TestWebApi.Controllers.ChartController (TestWebApi).
+2023-11-17 14:39:44.710 +05:30  INF  Executing ObjectResult, writing value of type 'TestWebApi.Models.Settings'.
+2023-11-17 14:39:44.720 +05:30  INF  Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-11-17 14:39:44.750 +05:30  INF  Executed action TestWebApi.Controllers.ChartController.Get (TestWebApi) in 67.9919ms
+2023-11-17 14:39:44.776 +05:30  INF  Executed endpoint 'TestWebApi.Controllers.ChartController.Get (TestWebApi)'
+2023-11-17 14:39:44.776 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/api/Chart - - - 200 - application/json;+charset=utf-8 105.7838ms
+2023-11-17 14:39:44.750 +05:30  INF  Executed action TestWebApi.Controllers.SettingsController.Get (TestWebApi) in 75.2563ms
+2023-11-17 14:39:44.777 +05:30  INF  Executed endpoint 'TestWebApi.Controllers.SettingsController.Get (TestWebApi)'
+2023-11-17 14:39:44.777 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/Settings - - - 200 - application/json;+charset=utf-8 210.7033ms
+2023-11-17 14:39:52.873 +05:30  INF  Request starting HTTP/1.1 OPTIONS http://localhost:3000/ManualMode - -
+2023-11-17 14:39:52.874 +05:30  INF  CORS policy execution successful.
+2023-11-17 14:39:52.876 +05:30  INF  Request finished HTTP/1.1 OPTIONS http://localhost:3000/ManualMode - - - 204 - - 2.0318ms
+2023-11-17 14:39:52.878 +05:30  INF  Request starting HTTP/1.1 POST http://localhost:3000/ManualMode application/json 13
+2023-11-17 14:39:52.878 +05:30  INF  CORS policy execution successful.
+2023-11-17 14:39:52.878 +05:30  INF  Executing endpoint 'TestWebApi.Controllers.ManualModeController.Post (TestWebApi)'
+2023-11-17 14:39:52.894 +05:30  INF  Route matched with {action = "Post", controller = "ManualMode"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Post(System.String) on controller TestWebApi.Controllers.ManualModeController (TestWebApi).
+2023-11-17 14:39:52.925 +05:30  INF  Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-11-17 14:39:52.925 +05:30  INF  Executed action TestWebApi.Controllers.ManualModeController.Post (TestWebApi) in 31.3241ms
+2023-11-17 14:39:52.925 +05:30  INF  Executed endpoint 'TestWebApi.Controllers.ManualModeController.Post (TestWebApi)'
+2023-11-17 14:39:52.925 +05:30  INF  Request finished HTTP/1.1 POST http://localhost:3000/ManualMode application/json 13 - 400 - text/plain;+charset=utf-8 47.6646ms
+2023-11-17 14:40:04.012 +05:30  INF  Executed endpoint '/data'
+2023-11-17 14:40:04.013 +05:30  INF  Request finished HTTP/1.1 GET http://localhost:3000/data - - - 101 - - 19361.2401ms

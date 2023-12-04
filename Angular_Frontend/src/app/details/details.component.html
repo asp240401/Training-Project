@@ -1,0 +1,34 @@
+<div
+  style="
+    position: fixed;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    top: 1px;
+    right: 20px;
+  "
+  *ngIf="active"
+>
+  <button
+    mat-raised-button
+    matTooltip="Disconnect UART connection"
+    style="background-color: rgb(197, 100, 100); width: 100%"
+    (click)="disconnect()"
+  >
+    Disconnect
+  </button>
+</div>
+<div>
+  <mat-tab-group
+    style="width: 100vw; height: 90vh"
+    animationDuration="1000ms"
+    (selectedTabChange)="tabClick($event)"
+  >
+    <mat-tab #tab label="Settings and Graph"
+      ><app-settings></app-settings
+    ></mat-tab>
+    <mat-tab label="Manual Mode">
+      <app-manual (emitter)="handleManualMode($event)"></app-manual
+    ></mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,12 @@
+<div style="display: flex;justify-content: space-between;align-items: center;">
+    <div>
+        <button mat-raised-button 
+        matTooltip="Click to Test EEPROM"
+        (click)="testEEPROM()"
+        style="background-color: #557C55;">Test EEPROM</button>
+    </div>
+    <div style="display: flex;align-items: center;">
+        <label style="width: 20vw;">EEPROM Test Status</label>
+        <input class="form-control" type="text" readonly [(ngModel)]="status" style="background-color: rgb(206, 206, 206);">
+    </div>
+</div>

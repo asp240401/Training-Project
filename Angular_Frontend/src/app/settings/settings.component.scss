@@ -1,0 +1,31 @@
+.blink_me {
+    animation: blinker 1s linear infinite;
+    background-color: rgb(197, 100, 100);
+  }
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+#main-div{
+  overflow: auto;
+  min-width: 30vw;
+  border-radius: 8px !important;
+  min-height: 48vh;
+  display: flex;
+  margin-left: 45px;
+  margin-right: 45px;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.295);
+}
+
+#settings-heading{
+  background-color: #557C55;display: flex;justify-content: center;min-height: 5vh;align-items: center;
+}
+
+#settings-div{
+  display: flex;justify-content: center;align-items: center;min-height: 45vh;
+}
+

@@ -1,0 +1,56 @@
+<div style="min-height: 90vh;display:flex;align-items:center;">
+    <div id="main-div">
+        <form style="width: 100%;" class="form-group" [formGroup]="myForm" (ngSubmit)="ViewDetails()">
+            <div class="mb-3">
+                <label class="form-label">Port Name</label>
+                <select class="form-select" id="portname" formConrolName="portname" (change)="selectPortname($event)">
+                    <option selected>Select Port Name</option>
+                    <option *ngFor="let u of portnames" [ngValue]="u" >{{u}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Handshake</label>
+                <select class="form-select"  formConrolName="handshake" (change)="selectHandshake($event)">
+                    <option *ngFor="let u of handshakes" [ngValue]="u" [ngClass]="u=='None'?'selected':''">{{u}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Baud Rate</label>
+                <!-- <input type="text" class="form-control" > -->
+                <select class="form-select" aria-label="Default select example" formConrolName="baudrate" (change)="selectBaudrate($event)"> 
+                    <option [ngValue]=1200>1200</option>
+                    <option [ngValue]=2400>2400</option>
+                    <option [ngValue]=4800>4800</option>
+                    <option [ngValue]=9600>9600</option>
+                    <option selected [ngValue]=115200>115200</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Parity</label>
+                <select class="form-select" aria-label="Default select example" formConrolName="parity" (change)="selectParity($event)">
+                    <option *ngFor="let u of parities" [ngValue]="u" [ngClass]="u=='None'?'selected':''">{{u}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Data bits</label>
+                <!-- <input type="text" class="form-control" > -->
+                <select class="form-select" aria-label="Default select example" formConrolName="databits" (change)="selectDatabits($event)">
+                    <option [ngValue]=5>5</option>
+                    <option [ngValue]=6>6</option>
+                    <option [ngValue]=7>7</option>
+                    <option selected [ngValue]=8>8</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Stop bits</label>
+                <select class="form-select" aria-label="Default select example" formConrolName="stopbits" (change)="selectStopbits($event)">
+                    <option *ngFor="let u of stopbits" [ngValue]="u" [ngClass]="u=='None'?'selected':''">{{u}}</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-evenly">
+                <button mat-raised-button 
+                        matTooltip="Establish UART connection" style="background-color: #557C55;" [disabled]="portname==''||portname=='Select Port Name'">Connect to UART</button>
+            </div>
+          </form>
+    </div>
+</div>

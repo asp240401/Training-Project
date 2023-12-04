@@ -1,0 +1,19 @@
+.blink_me {
+    animation: blinker 1s linear infinite;
+    background-color: red;
+  }
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+#main-div{
+    font-weight: bold;
+    color: azure;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}

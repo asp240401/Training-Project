@@ -1,0 +1,22 @@
+<div style="display: flex;justify-content: center;align-items: center;">
+    <div style="width: 100%;display: flex;">
+        <div class="led-container">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Green LED On/Off</label>
+            <div class="form-check form-switch">
+                <input #green class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="green" (click)="clickedGreen(green)">
+            </div>
+        </div>
+        <div class="led-container">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Red LED On/Off</label>
+            <div class="form-check form-switch">
+                <input #red class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="red" (click)="clickedRed(red)">
+            </div>
+        </div>
+        <div class="led-container">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Blue LED On/Off</label>
+            <div class="form-check form-switch">
+                <input #blue class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" id="yellow" (click)="clickedBlue(blue)">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div style="display: flex;justify-content: space-between;align-items: center;">
+    <div>
+        <button
+        mat-raised-button 
+        matTooltip="Click to Get Button Status"
+        (click)="getButtonStatus()"
+        style="background-color: #557C55;">Get Button Status</button>
+    </div>
+    <div style="display: flex;">
+        <label>Button Status</label>
+        <input class="form-control" type="text" readonly [(ngModel)]="status" style="background-color: rgb(206, 206, 206);">
+    </div>
+</div>

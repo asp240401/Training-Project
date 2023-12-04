@@ -1,0 +1,45 @@
+<div>
+    <form style="width: 100%;" class="form-group" [formGroup]="myForm">
+        <div class="mb-3">
+            <label class="form-label">Select Motor</label>
+            <select class="form-select" aria-label="Default select example" formConrolName="motor" (change)="motorSelect($event)">
+                <option selected>Motor 1</option>
+                <option>Motor 2</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Action</label>
+            <select class="form-select" aria-label="Default select example" formConrolName="action" (change)="actionSelect($event)">
+                <option>Rotate</option>
+                <option selected>Step</option>
+            </select>
+        </div>
+        <div class="mb-3" *ngIf="rotate">
+            <label class="form-label">Select Rotate Direction</label>
+            <select class="form-select" aria-label="Default select example" formConrolName="rotate" (change)="dirSelect($event)">
+                <option selected>Clockwise</option>
+                <option>Anti-Clockwise</option>
+            </select>
+        </div>
+        <div class="mb-3" *ngIf="step">
+            <label class="form-label">Select Step Angle</label>
+            <div style="width: 100%;display: flex;justify-content: center;">
+                <mat-slider
+                    style="width: 90% !important;"
+                    [disabled]="false"
+                    [max]="360"
+                    [min]="0"
+                    [step]="22.5"
+                    [discrete]="true"
+                    [showTickMarks]="true">
+                    <input matSliderThumb (change)="angleSelect($event)">
+                </mat-slider>
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly">
+            <button type="submit" mat-raised-button style="background-color: #557C55;" (click)="execute()">Execute</button>
+            <button mat-raised-button type="submit" class="btn" style="background-color: rgb(197, 100, 100);" (click)="stopRotate1()" *ngIf="rotating1">Stop Rotation Motor 1</button>
+            <button mat-raised-button type="submit" class="btn" style="background-color: rgb(197, 100, 100);" (click)="stopRotate2()" *ngIf="rotating2">Stop Rotation Motor 2</button>
+        </div>
+      </form>
+</div>

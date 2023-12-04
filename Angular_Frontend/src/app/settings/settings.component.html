@@ -1,0 +1,77 @@
+<div style="display: flex; align-items: center;min-height: 85vh">
+    <div id="main-div" >
+        <div style="width: 100%;">
+            <div id="settings-heading">
+                <div style="text-align: center;font-size: large;">Settings</div>
+            </div>
+            <div id="settings-div">
+                <form  class="form-group" [formGroup]="myForm" style="width: 80%;">
+                    <div class="mb-5">
+                        <label class="form-label">Data Acquisition Rate</label>
+                        <div style="display: flex;" class="input-group">
+                            <!-- <input type="text" class="form-control" formControlName="dataAqRate">  -->
+                            <select class="form-select" formConrolName="dataAqRate" (change)="selectDataRate($event)">
+                                <option [ngValue]=1000  [selected]="dar==1000">1000</option>
+                                <option [ngValue]=2000 [selected]="dar==2000">2000</option>
+                                <option [ngValue]=3000 [selected]="dar==3000">3000</option>
+                                <option [ngValue]=5000 [selected]="dar==5000">5000</option>
+                                <option [ngValue]=10000 [selected]="dar==10000">10000</option>
+                            </select>
+                            <span class="input-group-text">ms</span>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label class="form-label">Threshold Low</label>
+                        <div style="display: flex;" class="input-group">
+                            <input id="lthr" type="text" class="form-control" formControlName="lowThr"
+                            [ngClass]="{ 'is-invalid': submitted && myForm.controls['highThr'].hasError('required') }"> 
+                            <span class="input-group-text">mA</span>
+                        </div>
+                        <div *ngIf="submitted && myForm.controls['lowThr'].hasError('required')"  style="color: red;">
+                            *field is required
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label class="form-label">Threshold High</label>
+                        <div style="display: flex;" class="input-group">
+                            <input id="hthr" type="text" class="form-control" formControlName="highThr" 
+                                [ngClass]="{ 'is-invalid': submitted && ( myForm.controls['highThr'].hasError('mustMatch') || myForm.controls['highThr'].hasError('required') ) }">
+                            <span class="input-group-text">mA</span>
+                        </div>
+                        <div *ngIf="submitted && myForm.controls['highThr'].hasError('mustMatch')"  style="color: red;">
+                            upper threshold must be greater than lower threshold
+                        </div>
+                        <div *ngIf="submitted && myForm.controls['highThr'].hasError('required')"  style="color: red;">
+                            *field is required
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" mat-raised-button matTooltip="Save Configuration Settings" style="background-color: #557C55;" (click)="changeSettings()">Save changes</button>
+                        <button type="submit"  mat-raised-button matTooltip="Reset Configuration Settings" style="background-color: #557C55;" (click)="reset()">Reset to Defaults</button>
+                    </div>
+                    <!-- <div style="display: flex;justify-content: center;">
+                        <div style="width: 100%;">
+                            <button 
+                            mat-raised-button 
+                            matTooltip="Disconnect UART connection"
+                            (click)="disconnect()"
+                            style="background-color: rgb(197, 100, 100);width: 100%;">
+                                Disconnect
+                            </button>
+                        </div>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="graph-div">
+        <div style="min-height: 100%;align-items: center;display: flex;">
+            <div>
+                <app-graph [interval]="dar" [lthr]="lowThreshold" [hthr]="highThreshold" (emitter)="setBlinker($event)"></app-graph>  
+                <div class="blink_me" *ngIf="blink==true" style="text-align: center;color: azure;width: 60vw;">ALARM: Current Exceeded Threshold</div>
+                <div  *ngIf="blink==false" style="text-align: center;background-color: #557C55;color:white;width: 60vw;">Current within Threshold</div>
+            </div>   
+        </div>
+    </div>
+</div>

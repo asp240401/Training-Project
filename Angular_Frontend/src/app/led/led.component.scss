@@ -1,0 +1,33 @@
+#green:checked {
+    background-color: green;
+    border-color: green;
+}
+
+#red:checked {
+    background-color: red;
+    border-color: red;
+}
+
+#yellow:checked {
+    background-color: blue;
+    border-color: blue;
+}
+
+.form-check-input{
+    height: 3vh;
+    width: 5vw;
+
+}
+
+.form-check-label{
+    margin-right: 10px;
+}
+
+.led-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+    min-height: 5vh;
+}

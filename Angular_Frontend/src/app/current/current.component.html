@@ -1,0 +1,21 @@
+<div style="display: flex;justify-content: center;align-items: center;">
+    <div style="width: 100%;">
+        <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">
+            <button mat-raised-button 
+            matTooltip="Click to Get ADC data"
+            (click)="readAdc()"
+            style="background-color: #557C55;">Read ADC data</button>
+            <div>
+                <div>
+                    <label style="width: 10vw;">Current</label>
+                    <input class="form-control" type="text" readonly [(ngModel)]="current" style="background-color: rgb(206, 206, 206);">
+                </div>
+                <div>
+                    <label style="width: 20vw;">Raw ADC data</label>
+                <input class="form-control" type="text" readonly [(ngModel)]="adc" style="background-color: rgb(206, 206, 206);">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
