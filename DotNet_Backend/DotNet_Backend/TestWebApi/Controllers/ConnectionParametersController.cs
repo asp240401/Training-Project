@@ -38,13 +38,7 @@ namespace TestWebApi.Controllers
 		[HttpGet("portnames")]
 		public async Task<IEnumerable<string>> GetPortNames()
 		{
-			List<string> portNames = new List<string> { };
-			foreach (string s in SerialPort.GetPortNames())
-			{
-				portNames.Add(s);
-			}
-
-			return portNames;
+			return _serialPortService.GetPortNames();
 		}
 
 		/// <summary>
@@ -55,13 +49,8 @@ namespace TestWebApi.Controllers
 		[HttpGet("handshakes")]
 		public async Task<IEnumerable<string>> GetHandshakeOptions()
 		{
-			List<string> handshakes = new List<string> { };
-			foreach (string s in Enum.GetNames(typeof(Handshake)))
-			{
-				handshakes.Add(s);
-			}
 
-			return handshakes;
+			return _serialPortService.GetHandshakeOptions();
 		}
 
 		/// <summary>
@@ -71,15 +60,8 @@ namespace TestWebApi.Controllers
 		/// <returns>returns an enumerable collection of parity options</returns>
 		[HttpGet("parity")]
 		public async Task<IEnumerable<string>> GetParityOptions()
-		{
-			List<string> parity = new List<string> { };
-			foreach (string s in Enum.GetNames(typeof(Parity)))
-			{
-				parity.Add(s);
-			}
-
-
-			return parity;
+		{ 
+			return _serialPortService.GetParityOptions();
 		}
 
 		/// <summary>
@@ -90,27 +72,7 @@ namespace TestWebApi.Controllers
 		[HttpGet("stopbit")]
 		public async Task<IEnumerable<string>> GetStopBits()
 		{
-			List<string> stopbits = new List<string> { };
-			foreach (string s in Enum.GetNames(typeof(StopBits)))
-			{
-				stopbits.Add(s);
-			}
-
-			return stopbits;
-		}
-
-		/// <summary>
-		///		action method used to retrieve random sensor data for testing the graph
-		/// </summary>
-		/// 
-		/// <returns>returns an object representing the sensor data</returns>
-		[HttpGet("data")]
-		public async Task<object> GetSensorData()
-		{
-			SensorData data = new SensorData();
-			data.timestamp = DateTime.Now;
-			data.current = new Random().Next(5, 25);
-			return new {dt=data.timestamp.ToString("h:mm:ss tt"),current=data.current};
+			return _serialPortService.GetStopBits();
 		}
 
 		/// <summary>
