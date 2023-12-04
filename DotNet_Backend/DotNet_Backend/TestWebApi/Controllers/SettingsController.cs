@@ -17,14 +17,14 @@ namespace TestWebApi.Controllers
 	public class SettingsController : ControllerBase
 	{
 		private readonly ISerialPortService _serialPortService;
-		private readonly IHubContext<DataHub> _hub;
+		private readonly IHubService _hubService;
 		private readonly IFileService _fileService;
 		private readonly IDataService _dataService;
 
-		public SettingsController(ISerialPortService serialPortService, IHubContext<DataHub> hub,IFileService fileService, IDataService dataService)
+		public SettingsController(ISerialPortService serialPortService, IHubService hubService,IFileService fileService, IDataService dataService)
 		{
 			_serialPortService = serialPortService;
-			_hub = hub;
+			_hubService = hubService;
 			_fileService = fileService;
 			_dataService = dataService;
 		}
@@ -107,13 +107,15 @@ namespace TestWebApi.Controllers
 			{
 				Log.Error("Write Attempted while port is closed - Operation Cancelled");
 				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
-				_hub.Clients.All.SendAsync("TransferReplyError", "operation cancelled");
+
+				_hubService.sendToHub("TransferReplyError", "operation cancelled");
 			}
 			catch (InvalidOperationException e)
 			{
 				Log.Error("Write Attempted while port is closed - Invalid Operation");
 				_serialPortService.serialPort.DataReceived -= _dataService.dataReceived;
-				_hub.Clients.All.SendAsync("TransferReplyError", "Port is Closed");
+
+				_hubService.sendToHub("TransferReplyError", "Port is Closed");
 			}
 			catch(NullReferenceException e)
 			{

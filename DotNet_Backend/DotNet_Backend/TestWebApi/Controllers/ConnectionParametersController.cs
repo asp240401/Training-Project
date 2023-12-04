@@ -138,7 +138,6 @@ namespace TestWebApi.Controllers
 			}
 
 			_serialPortService.serialPort.DataReceived += _dataService.dataReceived;
-			_serialPortService.serialPort.PinChanged += _dataService.port_PinChanged;
 
 			_serialPortService.serialPort.PortName = port.PortName;
 			_serialPortService.serialPort.BaudRate = port.BaudRate;
