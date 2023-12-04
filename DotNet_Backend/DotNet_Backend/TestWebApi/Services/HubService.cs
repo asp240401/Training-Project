@@ -18,9 +18,15 @@ namespace TestWebApi.Services
 			_hub = hub;
 		}
 
-		public async Task sendToHub(string eventName,object arg)
+		/// <summary>
+		/// method used to send data to the signalR hub
+		/// </summary>
+		/// <param name="eventName">name of the event which will be raised in the hub</param>
+		/// <param name="data">the data to be sent to the hub</param>
+		/// <returns></returns>
+		public async Task sendToHub(string eventName,object data)
 		{
-			await _hub.Clients.All.SendAsync(eventName,arg);
+			await _hub.Clients.All.SendAsync(eventName,data);
 		}
 	}
 }
