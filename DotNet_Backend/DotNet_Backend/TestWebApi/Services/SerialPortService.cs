@@ -11,15 +11,15 @@ namespace TestWebApi.Services
 	/// Represents a service for managing a serial port connection
 	/// </summary>
 	public interface ISerialPortService
-    {
-        SerialPort serialPort { get; set; }
+    	{
+        	SerialPort serialPort { get; set; }
 	}
 
-    /// <summary>
-    /// This class is used for creating a singleton representing the serialPort connection
-    /// </summary>
-    public class SerialPortService : ISerialPortService
-    {
+    	/// <summary>
+    	/// This class is used for creating a singleton representing the serialPort connection
+    	/// </summary>
+    	public class SerialPortService : ISerialPortService
+    	{
 		public SerialPortService()
 		{
 
