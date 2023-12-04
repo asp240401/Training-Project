@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anirudh S Priyan\\Desktop\\FInal_Code\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj": {}
+    "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anirudh S Priyan\\Desktop\\FInal_Code\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj": {
+    "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anirudh S Priyan\\Desktop\\FInal_Code\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj",
         "projectName": "TestWebApi",
-        "projectPath": "C:\\Users\\Anirudh S Priyan\\Desktop\\FInal_Code\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj",
+        "projectPath": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj",
         "packagesPath": "C:\\Users\\Anirudh S Priyan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anirudh S Priyan\\Desktop\\FInal_Code\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\obj\\",
+        "outputPath": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Anirudh S Priyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
