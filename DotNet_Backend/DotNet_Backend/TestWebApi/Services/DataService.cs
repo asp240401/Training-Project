@@ -15,7 +15,6 @@ namespace TestWebApi.Services
 	public interface IDataService
 	{
 		void dataReceived(object sender, SerialDataReceivedEventArgs e);
-		void port_PinChanged(object sender, SerialPinChangedEventArgs e);
 	}
 
 	/// <summary>
@@ -196,18 +195,6 @@ namespace TestWebApi.Services
 				await _hubService.sendToHub("TransferReplyError", "port closed");
 			}
 	
-		}
-	
-		/// <summary>
-		/// Event handler for detecting changes in the serial port's pin state.
-		/// Useful for detecting if the device is removed.
-		/// </summary>
-		/// <param name="sender">The object that raised the event.</param>
-		/// <param name="e">The event arguments.</param>
-		public void port_PinChanged(object sender, SerialPinChangedEventArgs e)
-		{
-			Console.WriteLine("device may have been removed!");
-			_hubService.sendToHub("TransferReplyError", "port closed");
 		}
 	}
 }
