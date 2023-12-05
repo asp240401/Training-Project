@@ -1,1 +1,1 @@
-{"thresholdLow":0,"thresholdHigh":2,"dataAcquisitionRate":2000}
+{"thresholdLow":1.0,"thresholdHigh":2.0,"dataAcquisitionRate":2000}

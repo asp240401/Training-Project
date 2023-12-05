@@ -1,0 +1,42 @@
+2023-12-05 12:48:33.403 +05:30 [INF] SENT:SETMAN ON
+2023-12-05 12:48:43.402 +05:30 [INF] SENT:GETADC
+2023-12-05 12:48:53.315 +05:30 [INF] SENT:SETMAN OFF
+2023-12-05 12:49:06.804 +05:30 [INF] Disconnected from serial port
+2023-12-05 12:49:39.776 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:39.776 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:39.815 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:40.730 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:41.760 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:42.750 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:43.752 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:44.803 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:45.770 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:46.789 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:47.828 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:48.804 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:49.807 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:50.824 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:51.843 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:52.856 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:53.864 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:54.929 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:55.884 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:56.887 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:57.897 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:58.921 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:49:59.928 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:00.937 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:05.921 +05:30 [INF] Disconnected from serial port
+2023-12-05 12:50:15.423 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:16.400 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:17.402 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:18.407 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:19.411 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:20.423 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:50:21.427 +05:30 [ERR] An unexpected error occurred: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2023-12-05 12:51:05.928 +05:30 [ERR] operation was cancelled
+2023-12-05 12:51:05.950 +05:30 [ERR] operation was cancelled
+2023-12-05 12:51:05.951 +05:30 [INF] Disconnected from serial port
+2023-12-05 14:58:23.125 +05:30 [INF] Disconnected from serial port
+2023-12-05 14:59:09.307 +05:30 [INF] Disconnected from serial port
+2023-12-05 14:59:14.621 +05:30 [INF] Disconnected from serial port

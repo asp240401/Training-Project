@@ -2014,3 +2014,5 @@ C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNe
 C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\TestWebApi\obj\Debug\net7.0\TestWebApi.pdb
 C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\TestWebApi\obj\Debug\net7.0\TestWebApi.genruntimeconfig.cache
 C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\TestWebApi\obj\Debug\net7.0\ref\TestWebApi.dll
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\TestWebApi\bin\Debug\net7.0\SensorDataRepository.dll
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\TestWebApi\bin\Debug\net7.0\SensorDataRepository.pdb

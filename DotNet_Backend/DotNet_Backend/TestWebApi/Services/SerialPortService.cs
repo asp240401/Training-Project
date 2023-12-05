@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Internal;
 using System.Drawing;
 using System.IO.Ports;
-using TestWebApi.DataStorage;
 using TestWebApi.Hubs;
 using TestWebApi.Models;
 
@@ -37,13 +36,15 @@ namespace TestWebApi.Services
 	/// </summary>
 	public class SerialPortService : ISerialPortService
 	{
-		private readonly IDataService _dataService;
+		private readonly IDataService _dataReadService;
+		private readonly IDataHandlerService _dataHandlerService;
 
 		private static SerialPort serialPort { get; set; } = new SerialPort();
 
-		public SerialPortService(IDataService dataService)
+		public SerialPortService(IDataService dataReadService, IDataHandlerService dataHandlerService)
 		{
-			_dataService = dataService;
+			_dataReadService = dataReadService;
+			_dataHandlerService = dataHandlerService;
 		}
 		
 		public IEnumerable<string> GetPortNames()
@@ -89,13 +90,15 @@ namespace TestWebApi.Services
 		public void openSerialPort()
 		{
 			serialPort.Open();
-			serialPort.DataReceived += _dataService.dataReceived;
+
+			serialPort.DataReceived += _dataReadService.dataReceived;
+			//_dataReadService.DataReceived += _dataHandlerService.onDataRecievedFromDevice;
 		}
 
 		public void closeSerialPort()
 		{
 			serialPort.Close();
-			serialPort.DataReceived -= _dataService.dataReceived;	
+			serialPort.DataReceived -= _dataReadService.dataReceived;	
 		}
 
 		public void setPortname(string name)

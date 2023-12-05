@@ -23,20 +23,18 @@ namespace TestWebApi.Controllers
 	public class ConnectionParametersController : ControllerBase
 	{
 		private readonly ISerialPortService _serialPortService;
-		private readonly IDataService _dataService;
-		public ConnectionParametersController(ISerialPortService serialPortService, IDataService dataService)
+
+		public ConnectionParametersController(ISerialPortService serialPortService)
 		{
 			_serialPortService = serialPortService;
-			_dataService = dataService;
 		}
 
 		/// <summary>
 		///		action method used to retrive names of the currently active ports
 		/// </summary>
-		/// 
 		/// <returns>returns an enumerable collection of port names</returns>
 		[HttpGet("portnames")]
-		public async Task<IEnumerable<string>> GetPortNames()
+		public async Task<IEnumerable<string>> getPortNames()
 		{
 			return _serialPortService.GetPortNames();
 		}
@@ -44,10 +42,9 @@ namespace TestWebApi.Controllers
 		/// <summary>
 		///		action method used to retrieve the possible handshake options
 		/// </summary>
-		/// 
 		/// <returns>returns an enumerable collection of handshake options</returns>
 		[HttpGet("handshakes")]
-		public async Task<IEnumerable<string>> GetHandshakeOptions()
+		public async Task<IEnumerable<string>> getHandshakeOptions()
 		{
 
 			return _serialPortService.GetHandshakeOptions();
@@ -56,10 +53,9 @@ namespace TestWebApi.Controllers
 		/// <summary>
 		///		action method used to retrieve the possible parity options
 		/// </summary>
-		/// 
 		/// <returns>returns an enumerable collection of parity options</returns>
 		[HttpGet("parity")]
-		public async Task<IEnumerable<string>> GetParityOptions()
+		public async Task<IEnumerable<string>> getParityOptions()
 		{ 
 			return _serialPortService.GetParityOptions();
 		}
@@ -67,10 +63,9 @@ namespace TestWebApi.Controllers
 		/// <summary>
 		///		action method used to retrieve possible stop bits 
 		/// </summary>
-		/// 
 		/// <returns>returns an enumerable collection of stopbits (as string)</returns>
 		[HttpGet("stopbit")]
-		public async Task<IEnumerable<string>> GetStopBits()
+		public async Task<IEnumerable<string>> getStopBits()
 		{
 			return _serialPortService.GetStopBits();
 		}
@@ -80,16 +75,10 @@ namespace TestWebApi.Controllers
 		///		method receives connection parameters such as Portname, Baudrate etc. from the frontend
 		///		and opens a serial port with the given parameters.
 		/// </summary>
-		/// 
 		/// <param name="port">Contains the connection parameters for connecting to the serial port</param>
-		/// 
 		/// <returns>returns an ActionResult object</returns>
-		/// 
-		/// <Exceptions cref="IOException">
-		///		Trying to open the port when it is already open will throw an exception
-		///	</Exceptions>
 		[HttpPost]
-		public async Task<ActionResult<Port>> PostPort(Port port)
+		public async Task<ActionResult<Port>> postPort(Port port)
 		{
 			if (_serialPortService.isOpen())
 			{
@@ -128,15 +117,8 @@ namespace TestWebApi.Controllers
 		///		action method used to close the serial port connection when user clicks disconnect button in the UI.
 		///		also unsubscribes from the serial port's dataReceived event handler.
 		/// </summary>
-		/// 
 		/// <param name="port">represents the port to be closed</param>
-		/// 
 		/// <returns>returns an ActionResult object</returns>
-		/// 
-		/// <Exception cref="IOException">
-		///		Trying to close the port when the port is in an invalid state or if an
-		///		attempt to set the state of the underlying port failed then an IOException is thrown.
-		/// </Exception>
 		[HttpPost("disconnect")]
 		public ActionResult disconnect(Port port)
 		{

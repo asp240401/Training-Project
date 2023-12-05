@@ -1,0 +1,12 @@
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\bin\Debug\net7.0\SensorDataRepository.deps.json
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\bin\Debug\net7.0\SensorDataRepository.dll
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\bin\Debug\net7.0\SensorDataRepository.pdb
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.csproj.AssemblyReference.cache
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.AssemblyInfoInputs.cache
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.AssemblyInfo.cs
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.csproj.CoreCompileInputs.cache
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.dll
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\refint\SensorDataRepository.dll
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\SensorDataRepository.pdb
+C:\Users\Anirudh S Priyan\Documents\GitHub\Training-Project\DotNet_Backend\DotNet_Backend\SensorDataRepository\obj\Debug\net7.0\ref\SensorDataRepository.dll

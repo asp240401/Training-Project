@@ -4,6 +4,67 @@
     "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\SensorDataRepository\\SensorDataRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\SensorDataRepository\\SensorDataRepository.csproj",
+        "projectName": "SensorDataRepository",
+        "projectPath": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\SensorDataRepository\\SensorDataRepository.csproj",
+        "packagesPath": "C:\\Users\\Anirudh S Priyan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\SensorDataRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Anirudh S Priyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\TestWebApi\\TestWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +88,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\SensorDataRepository\\SensorDataRepository.csproj": {
+                "projectPath": "C:\\Users\\Anirudh S Priyan\\Documents\\GitHub\\Training-Project\\DotNet_Backend\\DotNet_Backend\\SensorDataRepository\\SensorDataRepository.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

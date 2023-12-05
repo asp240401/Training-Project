@@ -31,10 +31,9 @@ namespace TestWebApi.Controllers
 		///		Action method used to retrieve the configuration settings stored in the JSON file.
 		///		The method reads from the JSON file, deserializes the data into a Settings object.
 		/// </summary>
-		/// 
 		/// <returns>returns an ActionResult object which wraps a Settings object</returns>
 		[HttpGet]
-		public ActionResult<Settings> Get()
+		public ActionResult<Settings> getSettings()
 		{
 			Settings settings = new Settings();
 
@@ -60,33 +59,13 @@ namespace TestWebApi.Controllers
 			return settings;
 		}
 
-
 		/// <summary>
 		///		action method used to post the configuration settings from the web app.
 		///		these settings will be stored in a JSON file and also written to the serial port.
 		/// </summary>
-		/// 
 		/// <param name="value">string containing the configuration settings</param>
-		/// 
-		/// <exception cref="InvalidOperationException">
-		///		If the device is physically removed from the port while trying to write, InvalidOperationException
-		///		will be raised. It is handled by sending an error message to the web-app via SignalR causing the web-app
-		///		to redirect to home page. 
-		///	</exception>
-		///	
-		///	<exception cref="NullReferenceException">
-		///		If write is attempted without creating an instance of serial port then NullReferenceException is thrown.
-		///		It is handled by sending an error message to the web-app via SignalR causing the web-app
-		///		to redirect to home page. 
-		/// </exception>
-		/// 
-		/// <exception cref="OperationCanceledException">
-		///		Thrown when the operation is canceled, such as when the device being written to is removed.
-		///		It is handled by sending an error message to the web-app via SignalR causing the web-app
-		///		to redirect to home page. 
-		/// </exception>
 		[HttpPost]
-		public void PostSettings([FromBody] string value)
+		public void postSettings([FromBody] string value)
 		{
 			string[] words = value.Split(' ');
 			var settings = new Settings();

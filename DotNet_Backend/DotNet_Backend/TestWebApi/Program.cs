@@ -4,7 +4,8 @@ using System.IO.Ports;
 using TestWebApi.Hubs;
 using TestWebApi.Models;
 using TestWebApi.Services;
-using TestWebApi.TimerFeatures;
+using SensorDataRepository;
+using SensorContext = TestWebApi.Models.SensorContext;
 
 namespace TestWebApi
 {
@@ -39,12 +40,16 @@ namespace TestWebApi
 				options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"));
 			}, ServiceLifetime.Singleton);
 			
-			builder.Services.AddSingleton<TimerManager>();
 			
-			builder.Services.AddScoped<IDataService, DataService>();
+			builder.Services.AddScoped<IDataService, DataReadService>();
+			builder.Services.AddScoped<IDataHandlerService, DataHandlerService>();
 			builder.Services.AddScoped<ISerialPortService,SerialPortService>();
 			builder.Services.AddSingleton<IFileService, FileService>();
 			builder.Services.AddSingleton<IHubService, HubService>();
+
+			//
+			//builder.Services.AddTransient<ISensorRepository,SensorRepository>();
+			//
 
 			builder.Services.AddSignalR();
 

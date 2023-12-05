@@ -18,7 +18,6 @@ namespace TestWebApi.Controllers
 	{
 		private readonly ISerialPortService _serialPortService;
 		private readonly IHubService _hubService;
-		private readonly IDataService _dataService;
 
 		public ManualModeController(ISerialPortService serialPortService, IHubService hubService)
 		{
