@@ -48,22 +48,22 @@ namespace TestWebApi.Services
 		{
 			var options = new DbContextOptionsBuilder<SensorContext>().UseSqlServer("Data Source=TJ16AA050-PC\\SQLEXPRESS;Initial Catalog=Current_Sensor;Integrated Security=true;MultipleActiveResultSets=true;TrustServerCertificate=True;").Options;
 
-            try
-            {
-                using (var dbContext = new SensorContext(options))
-                {
-                    dbContext.SensorData.Add(data);
-                    await dbContext.SaveChangesAsync();
-                }
+			try
+			{
+				using (var dbContext = new SensorContext(options))
+				{
+					dbContext.SensorData.Add(data);
+					await dbContext.SaveChangesAsync();
+				}
 			}
-            catch (DbUpdateException ex)
-            {
-                Log.Error("DbUpdateException occurred: " + ex.Message);
-            }
-            catch (Exception e)
-            {
-                Log.Error("An unexpected error occurred: " + e.Message);
-            }
+			catch (DbUpdateException ex)
+			{
+				Log.Error("DbUpdateException occurred: " + ex.Message);
+			}
+			catch (Exception e)
+			{
+				Log.Error("An unexpected error occurred: " + e.Message);
+			}
 		}
 
         /// <summary>
@@ -74,24 +74,24 @@ namespace TestWebApi.Services
         /// <returns></returns>
         public async Task handleAdcData(string message)
         {
-            	string[] words = message.Split(' ');
-            	if (words.Length == 3)
-            	{
-                	await _hubService.sendToHub("TransferAdcData", message);
-            	}
-	      		else
-            	{
-                	decimal val = Convert.ToDecimal(words[1]);
-                	Console.WriteLine("value:" + val);
+			string[] words = message.Split(' ');
+			if (words.Length == 3)
+			{
+				await _hubService.sendToHub("TransferAdcData", message);
+			}
+			else
+			{
+				decimal val = Convert.ToDecimal(words[1]);
+				Console.WriteLine("value:" + val);
 
-                	SensorData data = new SensorData();
-                	data.timestamp = DateTime.Now;
-                	data.current = val;
+				SensorData data = new SensorData();
+				data.timestamp = DateTime.Now;
+				data.current = val;
 
-                	await _hubService.sendToHub("TransferReplyData", new { label = data.timestamp.ToString("h:mm:ss tt"), y = data.current });
+				await _hubService.sendToHub("TransferReplyData", new { label = data.timestamp.ToString("h:mm:ss tt"), y = data.current });
 
-                	await writeToDatabase(data);
-            	}
+				await writeToDatabase(data);
+			}
         }
 
         /// <summary>
@@ -101,32 +101,32 @@ namespace TestWebApi.Services
         /// <param name="message">data received from the device</param>
         public void handleThresholdData(string message)
         {
-            	string[] words = message.Split(' ');
-            	if (words[1] == "SET") //THR SET reply from device
-            	{
+			string[] words = message.Split(' ');
+			if (words[1] == "SET") //THR SET reply from device
+			{
 
-            	}
-            	else
-            	{
-                	decimal lt = Convert.ToDecimal(words[1]);
-                	decimal ht = Convert.ToDecimal(words[2]);
-                	var settings = new Settings();
-                	var existingSettings = _fileService.readSettings();
+			}
+			else
+			{
+				decimal lt = Convert.ToDecimal(words[1]);
+				decimal ht = Convert.ToDecimal(words[2]);
+				var settings = new Settings();
+				var existingSettings = _fileService.readSettings();
 
-                	if (existingSettings.dataAcquisitionRate == 0)
-                	{
-                    	settings.dataAcquisitionRate = 1000;
-               		}
-                	else
-                	{
-                    	settings.dataAcquisitionRate = existingSettings.dataAcquisitionRate;
-                	}
+				if (existingSettings.dataAcquisitionRate == 0)
+				{
+					settings.dataAcquisitionRate = 1000;
+				}
+				else
+				{
+					settings.dataAcquisitionRate = existingSettings.dataAcquisitionRate;
+				}
 
-                	settings.thresholdLow = lt;
-                	settings.thresholdHigh = ht;
+				settings.thresholdLow = lt;
+				settings.thresholdHigh = ht;
 
-                	_fileService.writeSettings(settings);
-            	}
+				_fileService.writeSettings(settings);
+			}
         }
 		
 		/// <summary>
