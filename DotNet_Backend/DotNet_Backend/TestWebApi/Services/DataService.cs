@@ -31,7 +31,7 @@ namespace TestWebApi.Services
 	{
 		private readonly IFileService _fileService;
 
-        private readonly IHubService _hubService;
+		private readonly IHubService _hubService;
 
 		public DataService(IFileService fileService, IHubService hubService)
 		{
@@ -66,14 +66,14 @@ namespace TestWebApi.Services
 			}
 		}
 
-        /// <summary>
-        /// Method is used to handle the adc data received from the device.
-        /// Writes the data to the DB and also sends it to the frontend via SignalR
-        /// </summary>
-        /// <param name="message">data received from the device</param>
-        /// <returns></returns>
-        public async Task handleAdcData(string message)
-        {
+		/// <summary>
+		/// Method is used to handle the adc data received from the device.
+		/// Writes the data to the DB and also sends it to the frontend via SignalR
+		/// </summary>
+		/// <param name="message">data received from the device</param>
+		/// <returns></returns>
+		public async Task handleAdcData(string message)
+		{
 			string[] words = message.Split(' ');
 			if (words.Length == 3)
 			{
@@ -92,15 +92,15 @@ namespace TestWebApi.Services
 
 				await writeToDatabase(data);
 			}
-        }
+		}
 
-        /// <summary>
-        /// method used to handle threshold values received from the device.
+		/// <summary>
+		/// method used to handle threshold values received from the device.
 		/// saves threshold values to JSON file.
-        /// </summary>
-        /// <param name="message">data received from the device</param>
-        public void handleThresholdData(string message)
-        {
+		/// </summary>
+		/// <param name="message">data received from the device</param>
+		public void handleThresholdData(string message)
+		{
 			string[] words = message.Split(' ');
 			if (words[1] == "SET") //THR SET reply from device
 			{
@@ -127,11 +127,11 @@ namespace TestWebApi.Services
 
 				_fileService.writeSettings(settings);
 			}
-        }
+		}
 		
 		/// <summary>
-	    /// Event handler for processing data received from a serial port.
-	    /// </summary>
+		/// Event handler for processing data received from a serial port.
+		/// </summary>
 		/// <param name="sender">The object that raised the event.</param>
 		/// <param name="e">The event arguments.</param>
 		/// <exception cref="OperationCanceledException">
@@ -143,7 +143,7 @@ namespace TestWebApi.Services
 		/// <exception cref="NullReferenceException">
 		/// Thrown when a null reference is encountered, such as writitng to a serial port which is not instantiated.
 		/// </exception>
-	    public async void dataReceived(object sender, SerialDataReceivedEventArgs e)
+		public async void dataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
 			string message;
 			SerialPort sp = (SerialPort)sender;
