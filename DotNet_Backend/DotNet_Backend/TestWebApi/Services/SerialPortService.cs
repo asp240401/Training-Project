@@ -37,14 +37,12 @@ namespace TestWebApi.Services
 	public class SerialPortService : ISerialPortService
 	{
 		private readonly IDataService _dataReadService;
-		private readonly IDataHandlerService _dataHandlerService;
 
 		private static SerialPort serialPort { get; set; } = new SerialPort();
 
-		public SerialPortService(IDataService dataReadService, IDataHandlerService dataHandlerService)
+		public SerialPortService(IDataService dataReadService)
 		{
 			_dataReadService = dataReadService;
-			_dataHandlerService = dataHandlerService;
 		}
 		
 		public IEnumerable<string> GetPortNames()
@@ -92,7 +90,6 @@ namespace TestWebApi.Services
 			serialPort.Open();
 
 			serialPort.DataReceived += _dataReadService.dataReceived;
-			//_dataReadService.DataReceived += _dataHandlerService.onDataRecievedFromDevice;
 		}
 
 		public void closeSerialPort()

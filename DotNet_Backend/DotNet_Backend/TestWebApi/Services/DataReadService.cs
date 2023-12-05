@@ -58,7 +58,6 @@ namespace TestWebApi.Services
 				message = sp.ReadTo("\r");
 
 				DataReceived?.Invoke(message);
-				//await _dataHandlerService.onDataRecievedFromDevice(message);
 			}
 				
 			catch (OperationCanceledException ex)
