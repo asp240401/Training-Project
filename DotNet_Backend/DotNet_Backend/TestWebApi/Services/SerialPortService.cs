@@ -12,7 +12,7 @@ namespace TestWebApi.Services
 		/// Represents a service for managing a serial port connection
 		/// </summary>
 		public interface ISerialPortService
-    	{
+		{
 			IEnumerable<string> GetPortNames();
 			IEnumerable<string> GetHandshakeOptions();
 			IEnumerable<string> GetParityOptions();
